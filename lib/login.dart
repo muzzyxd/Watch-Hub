@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:watchhub/home.dart';
 import 'package:watchhub/register.dart';
 
 class Login extends StatefulWidget {
@@ -22,30 +23,11 @@ class _LoginState extends State<Login> {
       );
 
       if (check.session != null) {
-        showDialog(
-          // ignore: use_build_context_synchronously
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              title: const Text("Success", textAlign: TextAlign.center),
-              content: const Text(
-                "You are login successfully 🎉",
-                textAlign: TextAlign.center,
-              ),
-              actionsAlignment: MainAxisAlignment.center,
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop(); // close the dialog
-                  },
-                  child: const Text(
-                    "OK",
-                    style: TextStyle(color: Color.fromARGB(255, 0, 105, 95)),
-                  ),
-                ),
-              ],
-            );
-          },
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const HomePage(), // your HomePage widget
+          ),
         );
       }
     } catch (e) {
@@ -75,6 +57,8 @@ class _LoginState extends State<Login> {
         },
       );
     }
+    emailController.clear();
+    passController.clear();
   }
 
   @override

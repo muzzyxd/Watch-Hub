@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:watchhub/register.dart';
 
-class WatchOnboardingPage extends StatelessWidget {
-  const WatchOnboardingPage({super.key});
+class GetStart extends StatelessWidget {
+  const GetStart({super.key});
 
   @override
   Widget build(BuildContext context) {

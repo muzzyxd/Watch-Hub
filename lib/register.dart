@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:watchhub/home.dart';
 import 'package:watchhub/login.dart';
 
 class Register extends StatefulWidget {
@@ -21,31 +22,11 @@ class _RegisterState extends State<Register> {
         password: passController.text,
       );
 
-      if (check.session != null) {
-        showDialog(
-          // ignore: use_build_context_synchronously
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              title: const Text("Success", textAlign: TextAlign.center),
-              content: const Text(
-                "You are registered successfully 🎉",
-                textAlign: TextAlign.center,
-              ),
-              actionsAlignment: MainAxisAlignment.center,
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop(); // close the dialog
-                  },
-                  child: const Text(
-                    "OK",
-                    style: TextStyle(color: Color.fromARGB(255, 0, 105, 95)),
-                  ),
-                ),
-              ],
-            );
-          },
+      if (check.user != null) {
+        // User created successfully
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const HomePage()),
         );
       }
     } catch (e) {
@@ -55,10 +36,7 @@ class _RegisterState extends State<Register> {
         builder: (context) {
           return AlertDialog(
             title: const Text("Failed", textAlign: TextAlign.center),
-            content: const Text(
-              "Please Try Again",
-              textAlign: TextAlign.center,
-            ),
+            content: Text(e.toString(), textAlign: TextAlign.center),
             actionsAlignment: MainAxisAlignment.center,
             actions: [
               TextButton(
@@ -75,6 +53,8 @@ class _RegisterState extends State<Register> {
         },
       );
     }
+    emailController.clear();
+    passController.clear();
   }
 
   @override
