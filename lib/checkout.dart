@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class CheckoutPage extends StatefulWidget {
-  final List<Map<String, dynamic>>? cart; // optional
-  final Map<String, dynamic>? product; // optional
+  final List<Map<String, dynamic>>? cart; 
+  final Map<String, dynamic>? product;
 
   const CheckoutPage({super.key, this.cart, this.product});
 
@@ -43,8 +43,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
           'address': _addressController.text,
           'total_price': totalPrice,
           'items': widget.product != null
-              ? [widget.product] // single product in list
-              : widget.cart, // cart items
+              ? [widget.product] 
+              : widget.cart,
         });
 
         if (widget.cart != null) {
@@ -54,14 +54,14 @@ class _CheckoutPageState extends State<CheckoutPage> {
         }
 
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("✅ Order placed successfully!")),
+          const SnackBar(content: Text("Order placed successfully!")),
         );
 
         Navigator.pop(context);
       } catch (e) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text("❌ Failed to place order: $e")));
+        ).showSnackBar(SnackBar(content: Text("Failed to place order: $e")));
       }
     }
   }
@@ -76,12 +76,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
           key: _formKey,
           child: ListView(
             children: [
-              // Text(
-              //   "Total: \$${totalPrice.toStringAsFixed(2)}",
-              //   style:
-              //       const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              //   textAlign: TextAlign.right,
-              // ),
+
               TextFormField(
                 controller: _nameController,
                 decoration: const InputDecoration(

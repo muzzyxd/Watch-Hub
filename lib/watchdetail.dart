@@ -1,141 +1,5 @@
-// import 'package:flutter/material.dart';
-// import 'package:watchhub/addcart.dart';
-// import 'package:watchhub/checkout.dart';
-
-// class WatchDetailsPage extends StatelessWidget {
-//   final Map<String, dynamic> watch;
-
-//   const WatchDetailsPage({super.key, required this.watch});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Colors.white,
-//       appBar: AppBar(
-//         title: Text(watch['name'] ?? "Watch Details"),
-//         backgroundColor: const Color.fromARGB(255, 0, 105, 95),
-//       ),
-//       body: SingleChildScrollView(
-//         padding: const EdgeInsets.all(16),
-//         child: Column(
-//           crossAxisAlignment: CrossAxisAlignment.start,
-//           children: [
-//             // ✅ Image
-//             ClipRRect(
-//               borderRadius: BorderRadius.circular(16),
-//               child: Image.network(
-//                 watch['image_url'] ?? '',
-//                 height: 250,
-//                 width: double.infinity,
-//                 fit: BoxFit.cover,
-//                 errorBuilder: (context, error, stackTrace) =>
-//                     const Icon(Icons.watch, size: 120, color: Colors.grey),
-//               ),
-//             ),
-//             const SizedBox(height: 20),
-
-//             // ✅ Labels
-//            Text(
-//               "Name: ${watch['name'] ?? 'Unknown'}",
-//               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-//             ),
-//             const SizedBox(height: 8),
-
-//             Text(
-//               "Brand: ${watch['brand'] ?? 'Not available'}",
-//               style: const TextStyle(fontSize: 18, color: Colors.black),
-//             ),
-//             const SizedBox(height: 8),
-
-//             Text(
-//               "Type: ${watch['type'] ?? 'Unknown'}",
-//               style: const TextStyle(fontSize: 16),
-//             ),
-//             const SizedBox(height: 8),
-
-//             Text(
-//               "Price: \$${watch['price']?.toStringAsFixed(2) ?? '0.00'}",
-//               style: const TextStyle(
-//                 fontSize: 18,
-//                 fontWeight: FontWeight.bold,
-//                 color: Color.fromARGB(255, 0, 105, 95),
-//               ),
-//             ),
-//             const SizedBox(height: 8),
-
-//             Text(
-//               "Stock: ${watch['stock'] ?? 0}",
-//               style: TextStyle(
-//                 fontSize: 16,
-//                 color: (watch['stock'] ?? 0) > 0 ? Colors.green : Colors.red,
-//               ),
-//             ),
-//             const SizedBox(height: 20),
-
-//             const Text(
-//               "About this watch",
-//               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-//             ),
-//             const SizedBox(height: 8),
-
-//             Text(
-//               watch['description'] ?? "No description available",
-//               style: const TextStyle(fontSize: 16, height: 1.5),
-//             ),
-//             const SizedBox(height: 30),
-
-//             // ✅ Buttons
-//             Row(
-//               children: [
-//                 Expanded(
-//                   child: ElevatedButton(
-//                     onPressed: () {
-//                       Navigator.push(
-//                         context,
-//                         MaterialPageRoute(
-//                           builder: (context) => CheckoutPage(product: watch),
-//                         ),
-//                       );
-//                     },
-//                     style: ElevatedButton.styleFrom(
-//                       backgroundColor: const Color.fromARGB(255, 0, 105, 95),
-//                       padding: const EdgeInsets.symmetric(vertical: 14),
-//                       shape: RoundedRectangleBorder(
-//                         borderRadius: BorderRadius.circular(12),
-//                       ),
-//                     ),
-//                     child: const Text(
-//                       "Buy Now",
-//                       style: TextStyle(fontSize: 16, color: Colors.white),
-//                     ),
-//                   ),
-//                 ),
-//                 const SizedBox(width: 12),
-//                 IconButton(
-//                   onPressed: () {
-//                     Navigator.push(
-//                       context,
-//                       MaterialPageRoute(
-//                         builder: (context) => CartPage(
-//                           cart: [watch], // ✅ pass selected watch in a list
-//                         ),
-//                       ),
-//                     );
-//                   },
-//                   icon: const Icon(Icons.shopping_cart, size: 30),
-//                   color: const Color.fromARGB(255, 0, 105, 95),
-//                 ),
-//               ],
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:watchhub/addcart.dart';
 import 'package:watchhub/checkout.dart';
 
 class WatchDetailsPage extends StatefulWidget {
@@ -216,7 +80,7 @@ class _WatchDetailsPageState extends State<WatchDetailsPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // ---------------- Watch Image ----------------
+            
             Stack(
               children: [
                 ClipRRect(
@@ -256,7 +120,7 @@ class _WatchDetailsPageState extends State<WatchDetailsPage> {
             ),
             const SizedBox(height: 16),
 
-            // ---------------- Name & Brand ----------------
+           
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
@@ -273,7 +137,7 @@ class _WatchDetailsPageState extends State<WatchDetailsPage> {
             ),
             const SizedBox(height: 12),
 
-            // ---------------- Price & Stock ----------------
+         
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Row(
@@ -319,7 +183,7 @@ class _WatchDetailsPageState extends State<WatchDetailsPage> {
             ),
             const SizedBox(height: 16),
 
-            // ---------------- Description ----------------
+          
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: const Text(
@@ -336,7 +200,7 @@ class _WatchDetailsPageState extends State<WatchDetailsPage> {
             ),
             const SizedBox(height: 20),
 
-            // ---------------- Reviews Section ----------------
+          
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: const Text(
@@ -346,7 +210,7 @@ class _WatchDetailsPageState extends State<WatchDetailsPage> {
             ),
             const SizedBox(height: 12),
 
-            // Add Review Input
+
             if (supabase.auth.currentUser != null)
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -399,7 +263,7 @@ class _WatchDetailsPageState extends State<WatchDetailsPage> {
                 child: Text("Login to add a review."),
               ),
 
-            // List of Reviews
+        
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: isLoading

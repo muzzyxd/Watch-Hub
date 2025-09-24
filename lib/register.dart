@@ -23,7 +23,7 @@ class _RegisterState extends State<Register> {
       );
 
       if (check.user != null) {
-        // User created successfully
+      
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),
@@ -41,7 +41,7 @@ class _RegisterState extends State<Register> {
             actions: [
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pop(); // close the dialog
+                  Navigator.of(context).pop(); 
                 },
                 child: const Text(
                   "OK",
@@ -87,7 +87,7 @@ class _RegisterState extends State<Register> {
               ),
               const SizedBox(height: 30),
 
-              // Email Field
+           
               TextField(
                 controller: emailController,
                 decoration: InputDecoration(
@@ -101,7 +101,7 @@ class _RegisterState extends State<Register> {
               ),
               const SizedBox(height: 16),
 
-              // Password Field
+             
               TextField(
                 controller: passController,
                 obscureText: _isObscure,
@@ -127,7 +127,7 @@ class _RegisterState extends State<Register> {
 
               const SizedBox(height: 24),
 
-              // Sign Up Button
+           
               SizedBox(
                 width: double.infinity,
                 height: 50,

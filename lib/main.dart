@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:watchhub/getstart.dart';
 import 'package:watchhub/home.dart';
-import 'package:watchhub/register.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

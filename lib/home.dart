@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Header
+
               Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const Spacer(),
 
-                    // 🔍 Search icon
+
                     IconButton(
                       icon: const Icon(Icons.search, size: 27),
                       onPressed: () {
@@ -108,9 +108,8 @@ class _HomePageState extends State<HomePage> {
                         );
                       },
                     ),
-                    
 
-                    // ❤️ Favorites icon → go to FavouritePage
+                    
                     IconButton(
                       icon: const Icon(
                         Icons.favorite,
@@ -131,7 +130,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
-              // 🌍 Location Dropdown
+            
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Container(
@@ -182,7 +181,7 @@ class _HomePageState extends State<HomePage> {
 
               const SizedBox(height: 16),
 
-              // Carousel
+             
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: CarouselSlider(
@@ -212,7 +211,7 @@ class _HomePageState extends State<HomePage> {
 
               const SizedBox(height: 20),
 
-              // Categories
+            
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
@@ -239,7 +238,7 @@ class _HomePageState extends State<HomePage> {
 
               const SizedBox(height: 20),
 
-              // Curated for you
+          
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
@@ -293,7 +292,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
 
-      // ✅ Fixed Bottom Navigation
+     
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: (index) {
@@ -362,7 +361,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  // ✅ Category Widget
+ 
   Widget _buildCategory(String title) {
     final isSelected = selectedCategory == title;
 
@@ -395,7 +394,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  // ✅ Product Card
+  
   Widget _buildProduct(Map<String, dynamic> watch) {
     return Container(
       width: 180,
@@ -408,7 +407,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Product Image + Favourite Icon
+
               ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: Stack(
@@ -482,7 +481,7 @@ class _HomePageState extends State<HomePage> {
 
               const SizedBox(height: 10),
 
-              // Buttons Row
+              
               Row(
                 children: [
                   Expanded(
@@ -510,7 +509,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const SizedBox(width: 8),
 
-                  // 🛒 Cart Button
+                
                   CircleAvatar(
                     radius: 18,
                     backgroundColor: Colors.white,
@@ -544,191 +543,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-// class WatchDetailsPage extends StatelessWidget {
-//   final Map<String, dynamic> watch;
-
-//   const WatchDetailsPage({super.key, required this.watch});
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: Text(watch['name'] ?? "Watch Details")),
-//       body: Padding(
-//         padding: const EdgeInsets.all(16),
-//         child: Column(
-//           crossAxisAlignment: CrossAxisAlignment.start,
-//           children: [
-//             Image.network(watch['image'] ?? '', height: 250, fit: BoxFit.cover),
-//             const SizedBox(height: 20),
-//             Text(
-//               watch['name'] ?? '',
-//               style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-//             ),
-//             const SizedBox(height: 10),
-//             Text(
-//               "Price: \$${watch['price'] ?? ''}",
-//               style: const TextStyle(fontSize: 18, color: Colors.grey),
-//             ),
-//             const SizedBox(height: 20),
-//             Text(
-//               watch['description'] ?? "No description available",
-//               style: const TextStyle(fontSize: 16),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-// checkout page
-
-
-  // Widget _buildProduct(String name, String price, String imageUrl) {
-  //   return Container(
-  //     width: 180,
-  //     margin: const EdgeInsets.only(right: 15),
-  //     child: Card(
-  //       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-  //       elevation: 4,
-  //       child: Padding(
-  //         padding: const EdgeInsets.all(12),
-  //         child: Column(
-  //           crossAxisAlignment: CrossAxisAlignment.start,
-  //           children: [
-  //             // Product Image with Favorite icon on top-right
-  //             Stack(
-  //               children: [
-  //                 ClipRRect(
-  //                   borderRadius: BorderRadius.circular(12),
-  //                   child: Image.network(
-  //                     imageUrl,
-  //                     height: 130,
-  //                     width: double.infinity,
-  //                     fit: BoxFit.cover,
-  //                     errorBuilder: (context, error, stackTrace) =>
-  //                         const Icon(Icons.watch, size: 80, color: Colors.grey),
-  //                   ),
-  //                 ),
-  //               ],
-  //             ),
-
-  //             const SizedBox(height: 10),
-
-  //             // Product Name
-  //             Text(
-  //               name,
-  //               maxLines: 1,
-  //               overflow: TextOverflow.ellipsis,
-  //               style: const TextStyle(
-  //                 fontSize: 16,
-  //                 fontWeight: FontWeight.bold,
-  //               ),
-  //             ),
-
-  //             // Product Price
-  //             Text(
-  //               price,
-  //               style: const TextStyle(
-  //                 fontSize: 14,
-  //                 color: Color.fromARGB(255, 0, 105, 95),
-  //                 fontWeight: FontWeight.w600,
-  //               ),
-  //             ),
-
-  //             const SizedBox(height: 10),
-
-  //             // Buttons Row
-  //             Row(
-  //               children: [
-  //                 // Buy Now button
-  //                 Expanded(
-  //                   child: ElevatedButton(
-  //                     onPressed: () {
-  //                       // TODO: Handle Buy Now
-  //                     },
-  //                     style: ElevatedButton.styleFrom(
-  //                       backgroundColor: Color.fromARGB(255, 0, 105, 95),
-  //                       shape: RoundedRectangleBorder(
-  //                         borderRadius: BorderRadius.circular(8),
-  //                       ),
-  //                       padding: const EdgeInsets.symmetric(vertical: 8),
-  //                     ),
-  //                     child: const Text(
-  //                       "Buy Now",
-  //                       style: TextStyle(fontSize: 12, color: Colors.white),
-  //                     ),
-  //                   ),
-  //                 ),
-  //                 const SizedBox(width: 8),
-
-  //                 // Cart circle button
-  //                 CircleAvatar(
-  //                   radius: 18,
-  //                   backgroundColor: Colors.white,
-  //                   child: IconButton(
-  //                     padding: EdgeInsets.zero,
-  //                     onPressed: () {
-  //                       // TODO: Handle Add to Cart
-  //                     },
-  //                     icon: const Icon(
-  //                       Icons.shopping_cart,
-  //                       size: 18,
-  //                       color: Color.fromARGB(255, 0, 105, 95),
-  //                     ),
-  //                   ),
-  //                 ),
-  //               ],
-  //             ),
-  //           ],
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
-
-  //   // ✅ Product Card
-  //   static Widget _buildProduct(String name, String price, String img) {
-  //     return Container(
-  //       margin: const EdgeInsets.only(right: 16),
-  //       width: 160,
-  //       decoration: BoxDecoration(
-  //         color: Colors.white,
-  //         borderRadius: BorderRadius.circular(16),
-  //         boxShadow: [
-  //           BoxShadow(
-  //             color: Colors.grey.withOpacity(0.2),
-  //             blurRadius: 6,
-  //             offset: const Offset(0, 4),
-  //           ),
-  //         ],
-  //       ),
-  //       child: Column(
-  //         crossAxisAlignment: CrossAxisAlignment.start,
-  //         children: [
-  //           ClipRRect(
-  //             borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
-  //             child: Image.asset(img, height: 150, width: 160, fit: BoxFit.cover),
-  //           ),
-  //           Padding(
-  //             padding: const EdgeInsets.all(8.0),
-  //             child: Text(
-  //               name,
-  //               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-  //             ),
-  //           ),
-  //           Padding(
-  //             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-  //             child: Text(
-  //               price,
-  //               style: const TextStyle(
-  //                 color: Color.fromARGB(255, 0, 105, 95),
-  //                 fontWeight: FontWeight.bold,
-  //               ),
-  //             ),
-  //           ),
-  //         ],
-  //       ),
-  //     );
-  //   }
-  // }

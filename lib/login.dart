@@ -26,7 +26,7 @@ class _LoginState extends State<Login> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const HomePage(), // your HomePage widget
+            builder: (context) => const HomePage(), 
           ),
         );
       }
@@ -45,7 +45,7 @@ class _LoginState extends State<Login> {
             actions: [
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pop(); // close the dialog
+                  Navigator.of(context).pop(); 
                 },
                 child: const Text(
                   "OK",
@@ -72,7 +72,7 @@ class _LoginState extends State<Login> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: 40),
-              // Logo
+            
               Container(
                 height: 70,
                 width: 70,
@@ -91,7 +91,7 @@ class _LoginState extends State<Login> {
               ),
               const SizedBox(height: 30),
 
-              // Email Field
+              
               TextField(
                 controller: emailController,
                 decoration: InputDecoration(
@@ -105,7 +105,7 @@ class _LoginState extends State<Login> {
               ),
               const SizedBox(height: 16),
 
-              // Password Field
+             
               TextField(
                 controller: passController,
                 obscureText: _isObscure,
@@ -131,7 +131,7 @@ class _LoginState extends State<Login> {
 
               const SizedBox(height: 24),
 
-              // Sign in Button
+             
               SizedBox(
                 width: double.infinity,
                 height: 50,

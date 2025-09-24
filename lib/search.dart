@@ -31,7 +31,7 @@ class _SearchPageState extends State<SearchPage> {
     return (response as List).cast<Map<String, dynamic>>();
   }
 
-  int _selectedIndex = 1; // default to Search
+  int _selectedIndex = 1; 
 
   @override
   void initState() {
@@ -49,7 +49,7 @@ class _SearchPageState extends State<SearchPage> {
         (route) => false,
       );
     } else if (index == 1) {
-      // already in SearchPage
+     
     } else if (index == 2) {
       Navigator.push(
         context,
@@ -68,7 +68,7 @@ class _SearchPageState extends State<SearchPage> {
     return Scaffold(
       appBar: AppBar(title: const Text("Search Watches")),
 
-      // ✅ Body
+      
       body: Column(
         children: [
           Padding(
@@ -147,7 +147,7 @@ class _SearchPageState extends State<SearchPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: (index) {
-          if (index == _selectedIndex) return; // avoid reloading same page
+          if (index == _selectedIndex) return; 
 
           setState(() {
             _selectedIndex = index;
@@ -157,28 +157,28 @@ class _SearchPageState extends State<SearchPage> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => const HomePage(), // ✅ index 0 = Home
+                builder: (context) => const HomePage(), 
               ),
             );
           } else if (index == 1) {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => const SearchPage(), // ✅ index 1 = Search
+                builder: (context) => const SearchPage(), 
               ),
             );
           } else if (index == 2) {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => CartPage(cart: widget.cart), // ✅ Cart
+                builder: (context) => CartPage(cart: widget.cart), 
               ),
             );
           } else if (index == 3) {
             // Navigator.pushReplacement(
             //   context,
             //   MaterialPageRoute(
-            //     builder: (context) => const ProfilePage(), // ✅ Profile
+            //     builder: (context) => const ProfilePage(), 
             //   ),
             // );
           }

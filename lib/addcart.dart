@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:watchhub/checkout.dart';
 import 'package:watchhub/home.dart';
+import 'package:watchhub/profile.dart';
 import 'package:watchhub/search.dart';
 
 class CartPage extends StatefulWidget {
@@ -25,7 +26,7 @@ class _CartPageState extends State<CartPage> {
     if (widget.cart.isEmpty) return;
 
     setState(() {
-      widget.cart.clear(); // 🧹 Clear cart
+      widget.cart.clear(); 
     });
 
     ScaffoldMessenger.of(context).showSnackBar(
@@ -47,7 +48,7 @@ class _CartPageState extends State<CartPage> {
           ? const Center(child: Text("Your cart is empty"))
           : Column(
               children: [
-                // 🛒 Cart Items
+               
                 Expanded(
                   child: ListView.builder(
                     itemCount: widget.cart.length,
@@ -75,7 +76,7 @@ class _CartPageState extends State<CartPage> {
                   ),
                 ),
 
-                // 🧾 Total + Place Order Button
+             
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
@@ -128,11 +129,11 @@ class _CartPageState extends State<CartPage> {
                 ),
               ],
             ),
-      // ✅ Bottom Navigation
+   
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: (index) {
-          if (index == _selectedIndex) return; // avoid reloading same page
+          if (index == _selectedIndex) return;
 
           setState(() {
             _selectedIndex = index;
@@ -142,30 +143,30 @@ class _CartPageState extends State<CartPage> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => const HomePage(), // ✅ index 0 = Home
+                builder: (context) => const HomePage(), 
               ),
             );
           } else if (index == 1) {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => const SearchPage(), // ✅ index 1 = Search
+                builder: (context) => const SearchPage(), 
               ),
             );
           } else if (index == 2) {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => CartPage(cart: widget.cart), // ✅ Cart
+                builder: (context) => CartPage(cart: widget.cart), 
               ),
             );
           } else if (index == 3) {
-            // Navigator.pushReplacement(
-            //   context,
-            //   MaterialPageRoute(
-            //     builder: (context) => const ProfilePage(), // ✅ Profile
-            //   ),
-            // );
+             Navigator.pushReplacement(
+               context,
+               MaterialPageRoute(
+                 builder: (context) => const ProfilePage(),
+               ),
+             );
           }
         },
         selectedItemColor: const Color.fromARGB(255, 0, 105, 95),
